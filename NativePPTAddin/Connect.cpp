@@ -113,9 +113,9 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::ButtonClicked(IDispatch * control)
     WCHAR msg[64];
     if (ribbonCtl->get_Id(&idStr) != S_OK)
         return S_FALSE;
-    if (idStr == L"loginButton") {
+    if (idStr == OLESTR("loginButton")) {
         swprintf_s(msg, L"I am loginButton");
-    } else if (idStr == L"uploadButton") {
+    } else if (idStr == OLESTR("uploadButton")) {
         swprintf_s(msg, L"I am uploadButton");
     }
     MessageBoxW(NULL, msg, L"NativePPTAddin", MB_OK);
