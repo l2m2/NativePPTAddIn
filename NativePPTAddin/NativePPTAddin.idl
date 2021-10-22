@@ -1,0 +1,18 @@
+﻿// NativePPTAddin.idl: NativePPTAddin 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(NativePPTAddin.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(88a0e8ac-0fbd-4973-a824-210f272d5240),
+	version(1.0),
+]
+library NativePPTAddinLib
+{
+	importlib("stdole2.tlb");
+};
+

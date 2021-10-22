@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1684
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NativePPTAddin", "NativePPTAddin\NativePPTAddin.vcxproj", "{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NativePPTAddinPS", "NativePPTAddinPS\NativePPTAddinPS.vcxproj", "{40A9920D-F219-481B-8DC9-7014266482DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B} = {AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Debug|x64.ActiveCfg = Debug|x64
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Debug|x64.Build.0 = Debug|x64
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Debug|x86.ActiveCfg = Debug|Win32
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Debug|x86.Build.0 = Debug|Win32
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Release|x64.ActiveCfg = Release|x64
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Release|x64.Build.0 = Release|x64
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Release|x86.ActiveCfg = Release|Win32
+		{AFD70CAD-ED4D-4CD3-AC4C-B6927E450E6B}.Release|x86.Build.0 = Release|Win32
+		{40A9920D-F219-481B-8DC9-7014266482DA}.Debug|x64.ActiveCfg = Debug|x64
+		{40A9920D-F219-481B-8DC9-7014266482DA}.Debug|x86.ActiveCfg = Debug|Win32
+		{40A9920D-F219-481B-8DC9-7014266482DA}.Release|x64.ActiveCfg = Release|x64
+		{40A9920D-F219-481B-8DC9-7014266482DA}.Release|x86.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7938FEC3-C657-4CBB-8B64-E9819AF3C64D}
+	EndGlobalSection
+EndGlobal
