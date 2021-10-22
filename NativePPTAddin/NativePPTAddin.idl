@@ -8,11 +8,44 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
+	object,
+	uuid(3aba0b66-a87b-45dd-9ded-da9637fb88d8),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IConnect : IDispatch
+{
+};
+[
 	uuid(88a0e8ac-0fbd-4973-a824-210f272d5240),
 	version(1.0),
 ]
 library NativePPTAddinLib
 {
 	importlib("stdole2.tlb");
+	[
+		uuid(076d6ae3-6180-44c1-84db-319a3840cefb)
+	]
+    coclass Connect
+    {
+        interface IConnect;
+        [default] interface IRibbonCallback;
+    };
 };
 
+const int DISPID_RIBBONBUTTONCLICK = 0x4000;
+[
+    object,
+    uuid(CE895442-9981-4315-AA85-4B9A5C7739D8),
+    dual,
+    nonextensible,
+    helpstring("IRibbonCallback Interface"),
+    pointer_default(unique)
+]
+interface IRibbonCallback : IDispatch {
+    [id(DISPID_RIBBONBUTTONCLICK), helpstring("Button Callback")]
+    HRESULT ButtonClicked([in]IDispatch* ribbonControl);
+};
+
+import "shobjidl.idl";

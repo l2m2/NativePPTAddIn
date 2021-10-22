@@ -9,5 +9,13 @@
 
 // 添加要在此处预编译的标头
 #include "framework.h"
+#import "libid:AC0714F2-3D04-11D1-AE7D-00A0C90F26F4" \
+auto_rename auto_search raw_interfaces_only rename_namespace("AddinDesign")
+
+// Office type library (i.e., mso.dll).
+#import "libid:2DF8D04C-5BFA-101B-BDE5-00AA0044DE52" \
+    auto_rename auto_search raw_interfaces_only rename_namespace("Office")
+using namespace AddinDesign;
+using namespace Office;
 
 #endif //PCH_H

@@ -1,0 +1,51 @@
+HKCR
+{
+	NativePPTAddin.Connect.1 = s 'Connect class'
+	{
+		CLSID = s '{076d6ae3-6180-44c1-84db-319a3840cefb}'
+	}
+	NativePPTAddin.Connect = s 'Connect class'
+	{		
+		CurVer = s 'NativePPTAddin.Connect.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {076d6ae3-6180-44c1-84db-319a3840cefb} = s 'Connect class'
+		{
+			ProgID = s 'NativePPTAddin.Connect.1'
+			VersionIndependentProgID = s 'NativePPTAddin.Connect'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{88a0e8ac-0fbd-4973-a824-210f272d5240}'
+			Version = s '1.0'
+		}
+	}
+}
+
+HKCU
+{
+    NoRemove Software
+    {
+        NoRemove Microsoft
+        {
+            NoRemove Office
+            {
+                NoRemove PowerPoint
+                {
+                    NoRemove Addins
+                    {
+                        NativePPTAddin.Connect
+                        {
+                            val Description = s 'Native PPT Addin'
+                            val FriendlyName = s 'Native PPT Addin (ATL)'
+                            val LoadBehavior = d 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

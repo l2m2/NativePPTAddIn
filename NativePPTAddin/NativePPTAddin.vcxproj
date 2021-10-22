@@ -214,6 +214,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Connect.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="NativePPTAddin_i.h" />
@@ -222,6 +223,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Connect.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
@@ -262,11 +264,15 @@
     <ResourceCompile Include="NativePPTAddin.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connect.rgs" />
     <None Include="NativePPTAddin.def" />
     <None Include="NativePPTAddin.rgs" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="NativePPTAddin.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="RibbonManifest.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
