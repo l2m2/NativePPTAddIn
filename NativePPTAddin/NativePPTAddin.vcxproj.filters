@@ -82,4 +82,12 @@
   <ItemGroup>
     <Xml Include="RibbonManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\login.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="images\upload.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

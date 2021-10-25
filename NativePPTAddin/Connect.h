@@ -66,18 +66,18 @@ public:
 // _IDTExtensibility2 Methods
 public:
     STDMETHOD(OnConnection)(LPDISPATCH Application, ext_ConnectMode ConnectMode, LPDISPATCH AddInInst, SAFEARRAY * * custom);
-
     STDMETHOD(OnDisconnection)(ext_DisconnectMode RemoveMode, SAFEARRAY * * custom);
-
     STDMETHOD(OnAddInsUpdate)(SAFEARRAY * * custom);
-
     STDMETHOD(OnStartupComplete)(SAFEARRAY * * custom);
-
     STDMETHOD(OnBeginShutdown)(SAFEARRAY * * custom);
 
     STDMETHOD(GetCustomUI)(BSTR RibbonID, BSTR * RibbonXml);
 
     STDMETHOD(ButtonClicked)(IDispatch* control);
+    STDMETHOD(GetLabel)(IDispatch *control, BSTR *returnedVal);
+    STDMETHOD(GetVisible)(IDispatch *control, VARIANT_BOOL *returnedVal);
+    STDMETHOD(GetImage)(IDispatch *control, IPictureDisp **returnedVal);
+    STDMETHOD(CustomUILoadImage)(BSTR *imageId, IPictureDisp **returnedVal);
 
 };
 

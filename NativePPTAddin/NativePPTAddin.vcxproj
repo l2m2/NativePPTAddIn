@@ -272,7 +272,13 @@
     <Midl Include="NativePPTAddin.idl" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="RibbonManifest.xml" />
+    <Xml Include="RibbonManifest.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\login.png" />
+    <Image Include="images\upload.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -34,7 +34,6 @@ library NativePPTAddinLib
     };
 };
 
-const int DISPID_RIBBONBUTTONCLICK = 0x4000;
 [
     object,
     uuid(CE895442-9981-4315-AA85-4B9A5C7739D8),
@@ -44,8 +43,11 @@ const int DISPID_RIBBONBUTTONCLICK = 0x4000;
     pointer_default(unique)
 ]
 interface IRibbonCallback : IDispatch {
-    [id(DISPID_RIBBONBUTTONCLICK), helpstring("Button Callback")]
-    HRESULT ButtonClicked([in]IDispatch* ribbonControl);
+    [id(0x4000), helpstring("Button Callback")] HRESULT ButtonClicked([in]IDispatch *pControl);
+    [id(0x4001), helpstring("GetLabel Callback")] HRESULT GetLabel([in] IDispatch *pControl, [out, retval] BSTR *pbstrReturnedVal);
+    [id(0x4002), helpstring("GetVisible Callback")] HRESULT GetVisible([in] IDispatch *pControl, [out, retval] VARIANT_BOOL *pvarReturnedVal);
+    [id(0x4003), helpstring("GetImage Callback")] HRESULT GetImage([in] IDispatch *pControl, [out, retval] IPictureDisp ** ppdispImage);
+    [id(0x4004), helpstring("customUI LoadImage Callback")] HRESULT CustomUILoadImage([in] BSTR *pbstrImageId, [out, retval] IPictureDisp ** ppdispImage);
 };
 
 import "shobjidl.idl";

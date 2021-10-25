@@ -18,4 +18,6 @@ auto_rename auto_search raw_interfaces_only rename_namespace("AddinDesign")
 using namespace AddinDesign;
 using namespace Office;
 
+#pragma comment(lib, "gdiplus.lib")
+
 #endif //PCH_H

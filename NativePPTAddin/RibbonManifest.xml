@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="gb2312"?>
-<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" loadImage="CustomUILoadImage">
   <ribbon>
     <tabs>
       <tab id="NativePPTAddinTab" label="Native测试">
         <group id="userGroup" label="用户">
-          <button id="loginButton" screentip="登录" label="登录" size="large" imageMso="WebPagePreview" onAction="ButtonClicked" />
+          <button id="loginButton" screentip="登录" getLabel="GetLabel" getVisible="GetVisible" image="204" size="large" onAction="ButtonClicked" />
         </group>
         <group id="actionGroup" label="操作">
-          <button id="uploadButton" screentip="上传" label="上传" size="large" imageMso="WebPagePreview" onAction="ButtonClicked" />
+          <button id="uploadButton" screentip="上传" getLabel="GetLabel" getVisible="GetVisible" getImage="GetImage" size="large" onAction="ButtonClicked" />
         </group>
       </tab>
     </tabs>
