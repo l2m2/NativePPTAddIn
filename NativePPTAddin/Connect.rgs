@@ -42,6 +42,7 @@ HKCU
                             val Description = s 'Native PPT Addin'
                             val FriendlyName = s 'Native PPT Addin (ATL)'
                             val LoadBehavior = d 3
+                            val CommandLineSafe = d 1
                         }
                     }
                 }
