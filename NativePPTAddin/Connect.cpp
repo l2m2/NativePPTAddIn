@@ -105,13 +105,13 @@ namespace {
 
     void ShowLoginDialog()
     {
-        DuiLib::CPaintManagerUI::SetInstance(GetApplicationHInstance());
+        DuiLib::CPaintManagerUI::SetInstance(g_hInstance);
         TCHAR szPath[MAX_PATH] = { 0 };
-        GetModuleFileName(GetApplicationHInstance(), szPath, _countof(szPath));
+        GetModuleFileName(g_hInstance, szPath, _countof(szPath));
         *_tcsrchr(szPath, _T('\\')) = 0;
         DuiLib::CPaintManagerUI::SetResourcePath(szPath);
         LoginDialog dialog;
-        dialog.Create(NULL, _T("登录"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
+        dialog.Create(g_hWnd, _T("登录"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
         dialog.CenterWindow();
         dialog.ShowModal();
         //DuiLib::CPaintManagerUI::MessageLoop();

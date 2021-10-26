@@ -36,6 +36,7 @@ using namespace DuiLib;
 #   endif
 #endif
 
-extern HINSTANCE GetApplicationHInstance();
+extern HINSTANCE g_hInstance;
+extern HWND g_hWnd;
 
 #endif //PCH_H
