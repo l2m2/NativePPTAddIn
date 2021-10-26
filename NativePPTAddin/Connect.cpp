@@ -103,6 +103,36 @@ namespace {
         return S_OK;
     }
 
+    HRESULT HrGetImageFromLocal(LPCWSTR pstrFilePath, IPictureDisp ** ppdispImage)
+    {
+        PICTDESC pic;
+        memset(&pic, 0, sizeof pic);
+        Gdiplus::Bitmap *png = Gdiplus::Bitmap::FromFile(pstrFilePath);
+        HBITMAP hMap = NULL;
+        png->GetHBITMAP(Gdiplus::Color(), &hMap);
+        pic.picType = PICTYPE_BITMAP;
+        pic.bmp.hbitmap = hMap;
+        OleCreatePictureIndirect(&pic, IID_IPictureDisp, true, (LPVOID*)ppdispImage);
+        return S_OK;
+    }
+
+    wstring GetDllPath()
+    {
+        wstring temp;
+        temp.resize(1024 * 4);
+        LPWSTR pcTemp = (LPWSTR)temp.data();
+        GetModuleFileName(g_hInstance, pcTemp, 1024);
+        *_tcsrchr(pcTemp, _T('\\')) = _T('\0');
+        _tcscat_s(pcTemp, 1024, _T("\\"));
+        temp.resize(_tcslen(pcTemp));
+        return temp;
+    }
+
+    wstring GetImagesPath()
+    {
+        return GetDllPath() + L"images\\";
+    }
+
     void ShowLoginDialog()
     {
         DuiLib::CPaintManagerUI::SetInstance(g_hInstance);
@@ -193,6 +223,8 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetLabel(IDispatch * control, BSTR * 
         ret = OLESTR("登录");
     } else if (idStr == OLESTR("uploadButton")) {
         ret = OLESTR("上传");
+    } else if (idStr == OLESTR("updateButton")) {
+        ret = OLESTR("更新");
     }
     *returnedVal = ret.Detach();
     return S_OK;
@@ -207,6 +239,8 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetVisible(IDispatch * control, VARIA
     if (idStr == OLESTR("loginButton")) {
         *returnedVal = VARIANT_TRUE;
     } else if (idStr == OLESTR("uploadButton")) {
+        *returnedVal = VARIANT_TRUE;
+    } else {
         *returnedVal = VARIANT_TRUE;
     }
     return S_OK;
@@ -223,6 +257,9 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetImage(IDispatch * control, IPictur
         // 登录按钮使用image属性定义
     } else if (idStr == OLESTR("uploadButton")) {
         return HrGetImageFromResource(IDB_PNG_UPLOAD, TEXT("PNG"), returnedVal);
+    } else if (idStr == OLESTR("updateButton")) {
+        wstring png = GetImagesPath() + L"update.png";
+        return HrGetImageFromLocal(png.c_str(), returnedVal);
     }
     return S_OK;
 }

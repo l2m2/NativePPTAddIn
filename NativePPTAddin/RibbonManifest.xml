@@ -8,6 +8,7 @@
         </group>
         <group id="actionGroup" label="操作">
           <button id="uploadButton" screentip="上传" getLabel="GetLabel" getVisible="GetVisible" getImage="GetImage" size="large" onAction="ButtonClicked" />
+          <button id="updateButton" screentip="更新" getLabel="GetLabel" getVisible="GetVisible" getImage="GetImage" size="large" onAction="ButtonClicked" />
         </group>
       </tab>
     </tabs>
