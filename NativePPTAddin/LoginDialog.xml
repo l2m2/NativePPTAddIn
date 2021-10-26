@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Window size="400,320" caption="0,0,0,60" bktrans="true">
+  <Font name="微软雅黑" id="0" size="18" default="true" />
+  <Font name="微软雅黑" id="1" size="16" />
+  <Font name="微软雅黑" id="2" size="18" bold="true" />
+  <Font name="微软雅黑" id="3" size="14" />
+  <VerticalLayout>
+    <HorizontalLayout height="52" bkcolor="#FF0288D1">
+      <Label text="登录测试框" textcolor="0xFFFFFFFF" padding="20,0,0,0" font="1" />
+      <Control />
+      <Button name="minBtn" width="10" height="10" padding="0,21,20,0" normalimage="images\minimize.png" />
+      <Button name="closeBtn" width="10" height="10" padding="0,21,20,0" normalimage="images\close.png" />
+    </HorizontalLayout>
+    <VerticalLayout bkcolor="0xFFFFFFFF">
+      <Edit name="usernameEdit" height="48" font="3" padding="20,30,20,0" bordercolor="0xFF808080" bottombordersize="1" />
+      <Edit name="passwordEdit" height="48" password="true" font="3" padding="20,20,20,0" bordercolor="0xFF808080" bottombordersize="1" />
+      <Button name="loginBtn" text="登   录" height="50" bkcolor="#FF0277BD" textcolor="0xFFFFFFFF" font="2" padding="20,40,20,0" />
+    </VerticalLayout>
+  </VerticalLayout>
+</Window>

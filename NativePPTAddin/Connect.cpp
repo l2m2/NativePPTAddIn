@@ -3,6 +3,7 @@
 #include "pch.h"
 #include "Connect.h"
 #include <gdiplus.h>
+#include "LoginDialog.h"
 
 namespace {
     HRESULT HrGetResource(int nId, LPCTSTR lpType, LPVOID* ppvResourceData, DWORD* pdwSizeInBytes)
@@ -102,6 +103,19 @@ namespace {
         return S_OK;
     }
 
+    void ShowLoginDialog()
+    {
+        DuiLib::CPaintManagerUI::SetInstance(GetApplicationHInstance());
+        TCHAR szPath[MAX_PATH] = { 0 };
+        GetModuleFileName(GetApplicationHInstance(), szPath, _countof(szPath));
+        *_tcsrchr(szPath, _T('\\')) = 0;
+        DuiLib::CPaintManagerUI::SetResourcePath(szPath);
+        LoginDialog dialog;
+        dialog.Create(NULL, _T("登录"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
+        dialog.CenterWindow();
+        dialog.ShowModal();
+        //DuiLib::CPaintManagerUI::MessageLoop();
+    }
 } // End of anonymous namespace
 
 // CConnect
@@ -156,15 +170,15 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::ButtonClicked(IDispatch * control)
 {
     CComQIPtr<IRibbonControl> ribbonCtl(control);
     CComBSTR idStr;
-    WCHAR msg[64];
     if (ribbonCtl->get_Id(&idStr) != S_OK)
         return S_FALSE;
     if (idStr == OLESTR("loginButton")) {
-        swprintf_s(msg, L"I am loginButton");
+        ShowLoginDialog();
     } else if (idStr == OLESTR("uploadButton")) {
+        WCHAR msg[64];
         swprintf_s(msg, L"I am uploadButton");
+        MessageBoxW(NULL, msg, L"NativePPTAddin", MB_OK);
     }
-    MessageBoxW(NULL, msg, L"NativePPTAddin", MB_OK);
     return S_OK;
 }
 

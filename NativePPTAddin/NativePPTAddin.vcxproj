@@ -70,6 +70,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\duilib\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\duilib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -217,9 +219,11 @@
     <ClInclude Include="Connect.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="LoginDialog.h" />
     <ClInclude Include="NativePPTAddin_i.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="StdAfx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +242,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="LoginDialog.cpp" />
     <ClCompile Include="NativePPTAddin.cpp" />
     <ClCompile Include="NativePPTAddin_i.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
@@ -272,6 +277,9 @@
     <Midl Include="NativePPTAddin.idl" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="LoginDialog.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="RibbonManifest.xml">
       <SubType>Designer</SubType>
     </Xml>
