@@ -141,7 +141,7 @@ namespace {
         *_tcsrchr(szPath, _T('\\')) = 0;
         DuiLib::CPaintManagerUI::SetResourcePath(szPath);
         LoginDialog dialog;
-        dialog.Create(g_hWnd, _T("登录"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
+        dialog.Create(::GetActiveWindow(), _T("登录"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
         dialog.CenterWindow();
         dialog.ShowModal();
         //DuiLib::CPaintManagerUI::MessageLoop();
